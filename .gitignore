@@ -24,3 +24,4 @@ yarn-error.log*
 /.vs/fe/v17/.suo
 /.vs/slnx.sqlite
 /.vs/VSWorkspaceState.json
+.vs/fe/FileContentIndex/read.lock

@@ -8,6 +8,7 @@ import AddStudent from './components/AddStudent';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
 function App() {
+    document.title = "Marianna`s Register FE";
   return (
     <div className="App">
       <AppBar position="static" color="default">
