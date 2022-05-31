@@ -44,8 +44,8 @@ class AddCourse extends Component {
                   <TextField autoFocus fullWidth label="Course Id" name="course_id" onChange={this.handleChange}  /> 
                 </DialogContent>
                 <DialogActions>
-                  <Button id="Cancel" color="secondary" onClick={this.handleClose}>Cancel</Button>
-                  <Button id="Add" color="primary" onClick={this.handleAdd}>Add</Button>
+                  <Button id="CancelAddCourse" color="secondary" onClick={this.handleClose}>Cancel</Button>
+                  <Button id="AddCourse" color="primary" onClick={this.handleAdd}>Add</Button>
                 </DialogActions>
               </Dialog>      
           </div>

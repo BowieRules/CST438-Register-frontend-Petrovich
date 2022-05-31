@@ -52,8 +52,8 @@ class AddStudent extends Component {
                         <TextField autoFocus fullWidth label="Email" name="email" onChange={this.handleChange} margin="normal" />
                     </DialogContent>
                     <DialogActions>
-                        <Button color="secondary" onClick={this.handleClose}>Cancel</Button>
-                        <Button color="primary" onClick={this.handleAdd}>Add</Button>
+                        <Button id="CancelAddStudent" color="secondary" onClick={this.handleClose}>Cancel</Button>
+                        <Button id="AddStudent" color="primary" onClick={this.handleAdd}>Add</Button>
                     </DialogActions>
                 </Dialog>
             </div>
