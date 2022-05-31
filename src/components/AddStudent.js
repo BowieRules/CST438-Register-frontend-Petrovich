@@ -42,7 +42,7 @@ class AddStudent extends Component {
     render() {
         return (
             <div>
-                <Button variant="outlined" color="primary" style={{ margin: 10 }} onClick={this.handleClickOpen}>
+                <Button id="btnAddStudent1" variant="outlined" color="primary" style={{ margin: 10 }} onClick={this.handleClickOpen}>
                     Add Student
                 </Button>
                 <Dialog open={this.state.open} onClose={this.handleClose}>
@@ -52,8 +52,8 @@ class AddStudent extends Component {
                         <TextField autoFocus fullWidth label="Email" name="email" onChange={this.handleChange} margin="normal" />
                     </DialogContent>
                     <DialogActions>
-                        <Button id="CancelAddStudent" color="secondary" onClick={this.handleClose}>Cancel</Button>
-                        <Button id="AddStudent" color="primary" onClick={this.handleAdd}>Add</Button>
+                        <Button id="btnCancelAddStudent" color="secondary" onClick={this.handleClose}>Cancel</Button>
+                        <Button id="btnAddStudent2" color="primary" onClick={this.handleAdd}>Add</Button>
                     </DialogActions>
                 </Dialog>
             </div>
