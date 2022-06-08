@@ -16,13 +16,32 @@ import { ButtonGroup } from '@mui/material';
 // user selects from a list of  (year, semester) values
 class Semester extends Component {
     constructor(props) {
-      super(props);
-      this.state = {selected: SEMESTER_LIST.length-1 };
+        super(props);
+        this.state = { selected: SEMESTER_LIST.length - 1, isAdmin: false };
+    }
+
+    componentDidMount() {
+        this.checkAdmin();
     }
  
    onRadioClick = (event) => {
-    console.log("Semester.onRadioClick "+JSON.stringify(event.target.value));
-    this.setState({selected: event.target.value});
+       console.log("Semester.onRadioClick "+JSON.stringify(event.target.value));
+       this.setState({ selected: event.target.value });
+    }
+
+    checkAdmin = async () => {
+        const token = Cookies.get("XSRF-TOKEN");
+        const response = await fetch(`${SERVER_URL}/isAdmin`, {
+            method: "GET",
+            headers: { "X-XSRF-TOKEN": token },
+            credentials: 'include'
+        });
+
+        if (response.ok) {
+            const data = await response.text();
+            console.log("Admin priveleges: " + (data === 'true'));
+            this.setState({ isAdmin: (data === 'true') });
+        }
     }
 
     // Add student
@@ -36,6 +55,7 @@ class Semester extends Component {
                     'Content-Type': 'application/json',
                     'X-XSRF-TOKEN': token
                 },
+                credentials: 'include',
                 body: JSON.stringify(student)
             })
             .then(res => {
@@ -102,7 +122,7 @@ class Semester extends Component {
                     variant="outlined" color="primary" style={{margin: 10}}>
                     Get Schedule
                     </Button>
-                    <AddStudent addStudent={this.addStudent} />
+                    { this.state.isAdmin && <AddStudent addStudent={this.addStudent} /> }
                 </ButtonGroup>
                 <ToastContainer autoClose={1500} />
           </div>
